@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JSFBackgroundForComponents: Exploded archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/JSFBackgroundForComponents__Exploded_archive</output-path>
+    <root id="archive" name="JSFBackgroundForComponents_ Exploded archive.war">
+      <element id="artifact" artifact-name="JSFBackgroundForComponents: Exploded" />
+    </root>
+  </artifact>
+</component>
