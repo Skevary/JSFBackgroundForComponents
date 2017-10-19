@@ -21,7 +21,7 @@
 
                     <!-- Range Calendar -->
                     <div class="form-group">
-                        <label>Date Range Calendars: </label>
+                        <label for="first_calendar">Date Range Calendars: </label>
                         <h:inputText styleClass="form-control" id="first_calendar"
                                      a:date-picker="true" a:date-format="DD-MM-YYYY"
                                      a:placeholder="Select First Date"
@@ -42,18 +42,19 @@
 
                 <!-- Output -->
                 <div class="col-sm-6">
+                    <!-- Single Calendar -->
                     <div class="form-group">
                         <label for="output_single_date">Single Date Output: </label>
                         <h:inputText id="output_single_date" readonly="true" styleClass="form-control"
                                      value="#{mainController.singleDate.formattedDate}"/> <!-- Attention, it is possible to return a formatted date. -->
                     </div>
-
+                    <!-- Range Calendar -->
                     <div class="form-group">
                         <label for="output_first_date">Date Range Output: </label>
                         <h:inputText id="output_first_date" readonly="true" styleClass="form-control"
-                                     value="#{mainController.rangeDate.date1}"/>
+                                     value="#{mainController.rangeDate.date1}"/>  <!-- And there's a date without the use of SimpleDateFormat filtered.-->
                         <h:inputText id="output_second_date" readonly="true" styleClass="form-control"
-                                     value="#{mainController.rangeDate.date2}"/>
+                                         value="#{mainController.rangeDate.date2}"/> <!-- And here. -->
                     </div>
 
                 </div>

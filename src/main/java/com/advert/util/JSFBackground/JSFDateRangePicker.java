@@ -3,7 +3,8 @@ package com.advert.util.JSFBackground;
 import java.text.SimpleDateFormat;
 
 /**
- * A utility class designed for storing two date fields.
+ * A utility class designed for storing two date fields.<p>
+ * Inside this class the date Format by default: <tt>dd/MM/yyyy</tt>.
  *
  * @param <T> the type of date field
  * @see java.util.Date
