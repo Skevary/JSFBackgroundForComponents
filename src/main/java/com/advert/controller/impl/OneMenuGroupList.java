@@ -1,13 +1,13 @@
 package com.advert.controller.impl;
 
 
-import com.advert.util.JSFBackground.JSFOneSelectList;
+import com.advert.util.JSFBackground.JSFSelectItemList;
 
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
 
-public class OneMenuGroupList extends JSFOneSelectList<String,SelectItem> {
+public class OneMenuGroupList extends JSFSelectItemList<String, SelectItem> {
 
     public OneMenuGroupList() {
         super(new ArrayList<>()); // To set the collection type.

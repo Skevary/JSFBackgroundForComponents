@@ -1,10 +1,10 @@
 package com.advert.controller.impl;
 
-import com.advert.util.JSFBackground.JSFOneSelectMap;
+import com.advert.util.JSFBackground.JSFSelectItemMap;
 
 import java.util.HashMap;
 
-public class OneListBox extends JSFOneSelectMap<String, String, Object> {
+public class OneListBox extends JSFSelectItemMap<String, String, Object> {
     public OneListBox() {
         super(new HashMap<>());
         addItem("Langley", "CV-1");
