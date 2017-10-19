@@ -1,14 +1,14 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
                 template="../WEB-INF/templates/default.xhtml">
 
     <ui:define name="content">
         <h:form id="select_menu" style="position: relative">
             <div class="container">
-                <!-- One Menu Group -->
                 <div class="col-sm-6">
+                    <!-- One Menu -->
                     <div class="form-group">
                         <label for="select_one_menu">One menu: </label>
                         <h:selectOneMenu id="select_one_menu" styleClass="form-control"
@@ -18,6 +18,7 @@
                         </h:selectOneMenu>
                     </div>
 
+                    <!-- One Menu Group -->
                     <div class="form-group">
                         <label for="select_group_menu">One group menu: </label>
                         <h:selectOneMenu id="select_group_menu" styleClass="form-control"
@@ -26,20 +27,39 @@
                             <f:ajax execute="@form" render="output_select_group_menu"/>
                         </h:selectOneMenu>
                     </div>
+
+                    <!-- One Listbox -->
+                    <div class="form-group">
+                        <label for="select_one_list_box">One list box: </label>
+                        <h:selectOneListbox id="select_one_list_box" styleClass="form-control"
+                                            value="#{mainController.listBox.item}">
+                            <f:selectItems value="#{mainController.listBox.items}"/>
+                            <f:ajax execute="@form" render="output_select_one_list_box"/>
+                        </h:selectOneListbox>
+                    </div>
                 </div>
 
                 <!-- Output -->
                 <div class="col-sm-6">
+                    <!-- One Menu -->
                     <div class="form-group">
                         <label for="output_select_one_menu">Output one menu item: </label>
                         <h:inputText id="output_select_one_menu" readonly="true" styleClass="form-control"
                                      value="#{mainController.oneMenu.item}"/>  <!-- Attention, returns Map value (In this situation, as a String, also see item type inside class.) -->
                     </div>
 
+                    <!-- One Menu Group -->
                     <div class="form-group">
                         <label for="output_select_group_menu">Output one group menu item: </label>
                         <h:inputText id="output_select_group_menu" readonly="true" styleClass="form-control"
                                      value="#{mainController.oneMenuGroup.item}"/>
+                    </div>
+
+                    <!-- One Listbox -->
+                    <div class="form-group">
+                        <label for="output_select_one_list_box">Output one list box: </label>
+                        <h:inputText id="output_select_one_list_box" readonly="true" styleClass="form-control"
+                                     value="#{mainController.listBox.item}"/>
                     </div>
                 </div>
             </div>

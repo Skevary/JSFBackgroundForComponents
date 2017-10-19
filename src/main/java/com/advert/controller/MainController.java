@@ -1,9 +1,6 @@
 package com.advert.controller;
 
-import com.advert.controller.impl.DatePicker;
-import com.advert.controller.impl.DateRangePicker;
-import com.advert.controller.impl.SelectOneMenu;
-import com.advert.controller.impl.SelectOneMenuGroup;
+import com.advert.controller.impl.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,8 +11,9 @@ public class MainController {
     /* Pay attention to the overloaded constructors in the parent class */
     private DatePicker singleDate = new DatePicker("dd/MM/yyyy");
     private DateRangePicker rangeDate = new DateRangePicker(); // The date format is installed inside
-    private SelectOneMenu oneMenu = new SelectOneMenu();
-    private SelectOneMenuGroup oneMenuGroup = new SelectOneMenuGroup();
+    private OneMenuMap oneMenu = new OneMenuMap();
+    private OneMenuGroupList oneMenuGroup = new OneMenuGroupList();
+    private OneListBox listBox = new OneListBox();
 
     public DateRangePicker getRangeDate() {
         return rangeDate;
@@ -33,19 +31,27 @@ public class MainController {
         this.singleDate = singleDate;
     }
 
-    public SelectOneMenu getOneMenu() {
+    public OneMenuMap getOneMenu() {
         return oneMenu;
     }
 
-    public void setOneMenu(SelectOneMenu oneMenu) {
+    public void setOneMenu(OneMenuMap oneMenu) {
         this.oneMenu = oneMenu;
     }
 
-    public SelectOneMenuGroup getOneMenuGroup() {
+    public OneMenuGroupList getOneMenuGroup() {
         return oneMenuGroup;
     }
 
-    public void setOneMenuGroup(SelectOneMenuGroup oneMenuGroup) {
+    public void setOneMenuGroup(OneMenuGroupList oneMenuGroup) {
         this.oneMenuGroup = oneMenuGroup;
+    }
+
+    public OneListBox getListBox() {
+        return listBox;
+    }
+
+    public void setListBox(OneListBox listBox) {
+        this.listBox = listBox;
     }
 }

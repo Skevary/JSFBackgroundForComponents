@@ -1,9 +1,9 @@
 body {
-    background-color: #f7f3f3;
+    background-color: #f7f3f3 !important;
 }
 
 .form-control {
-    height: 28px !important;
+    height: 100% !important;
     width: 255px !important;
     font-size: 12px !important;
     border-radius: 0 !important;

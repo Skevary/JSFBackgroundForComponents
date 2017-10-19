@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A utility class designed for storing <tt>selectOneMenu</tt> component.<p>
+ * A utility class designed for storing <tt>selectOneMenu or similars</tt> component.<p>
  * Inside this class the items collection by default: {@link ArrayList}.
  *
  * @param <T> the {@link #item} type
@@ -12,7 +12,7 @@ import java.util.List;
  * @see List
  * @see ArrayList
  */
-public abstract class JSFSelectOneMenuList<T, S> {
+public abstract class JSFOneSelectList<T, S> {
 
     /**
      * Typically, the current selection in "selectOneMenu".
@@ -41,44 +41,44 @@ public abstract class JSFSelectOneMenuList<T, S> {
 
 
     /**
-     * Constructs an empty <tt>JSFSelectOneMenuList</tt> with the default collection: {@link ArrayList}.
+     * Constructs an empty <tt>JSFOneSelectList</tt> with the default collection: {@link ArrayList}.
      *
      * @see #items
      * @see ArrayList
      */
-    public JSFSelectOneMenuList() {
+    public JSFOneSelectList() {
         this.items = new ArrayList<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a specified {@link #item} value.
+     * Constructs an <tt>JSFOneSelectList</tt> with a specified {@link #item} value.
      *
      * @param item value<i>(typically, the current selection in "selectOneMenu")</i>.
      * @see #item
      * @see #items
      * @see ArrayList
      */
-    public JSFSelectOneMenuList(T item) {
+    public JSFOneSelectList(T item) {
         this.item = item;
         this.items = new ArrayList<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a specified collection elements.
+     * Constructs an <tt>JSFOneSelectList</tt> with a specified collection elements.
      *
      * @param items a collection of elements.
      * @see #items
      * @see List
      */
-    public JSFSelectOneMenuList(List<S> items) {
+    public JSFOneSelectList(List<S> items) {
         this.items = items;
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a
+     * Constructs an <tt>JSFOneSelectList</tt> with a
      * specified {@link #item} value and specified collection elements.
      *
      * @param item  a value<i>(typically, the current selection in "selectOneMenu")</i>.
@@ -87,7 +87,7 @@ public abstract class JSFSelectOneMenuList<T, S> {
      * @see #items
      * @see List
      */
-    public JSFSelectOneMenuList(T item, List<S> items) {
+    public JSFOneSelectList(T item, List<S> items) {
         this.item = item;
         this.items = items;
     }
@@ -151,9 +151,9 @@ public abstract class JSFSelectOneMenuList<T, S> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof JSFSelectOneMenuList)) return false;
+        if (!(o instanceof JSFOneSelectList)) return false;
 
-        JSFSelectOneMenuList<?, ?> that = (JSFSelectOneMenuList<?, ?>) o;
+        JSFOneSelectList<?, ?> that = (JSFOneSelectList<?, ?>) o;
 
         if (getItem() != null ? !getItem().equals(that.getItem()) : that.getItem() != null) return false;
         return getItems() != null ? getItems().equals(that.getItems()) : that.getItems() == null;
@@ -170,7 +170,7 @@ public abstract class JSFSelectOneMenuList<T, S> {
 
     @Override
     public String toString() {
-        return "JSFSelectOneMenuList{" + "item=" + item + ", items=" + items + '}';
+        return "JSFOneSelectList{" + "item=" + item + ", items=" + items + '}';
     }
 
 }

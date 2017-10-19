@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A utility class designed for storing <tt>selectOneMenu</tt> component.<p>
+ * A utility class designed for storing <tt>selectOneMenu or similars</tt> component.<p>
  * Inside this class the items collection by default: {@link HashMap}.
  *
  * @param <T> the {@link #item} type
@@ -13,7 +13,7 @@ import java.util.Map;
  * @see Map
  * @see HashMap
  */
-public abstract class JSFSelectOneMenuMap<T, K, V> {
+public abstract class JSFOneSelectMap<T, K, V> {
 
     /**
      * Typically, the current selection in "selectOneMenu".
@@ -42,44 +42,44 @@ public abstract class JSFSelectOneMenuMap<T, K, V> {
 
 
     /**
-     * Constructs an empty <tt>JSFSelectOneMenuMap</tt> with the default collection: {@link HashMap}.
+     * Constructs an empty <tt>JSFOneSelectMap</tt> with the default collection: {@link HashMap}.
      *
      * @see #items
      * @see HashMap
      */
-    public JSFSelectOneMenuMap() {
+    public JSFOneSelectMap() {
         this.items = new HashMap<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a specified {@link #item} value.
+     * Constructs an <tt>JSFOneSelectMap</tt> with a specified {@link #item} value.
      *
      * @param item value<i>(typically, the current selection in "selectOneMenu")</i>.
      * @see #item
      * @see #items
      * @see HashMap
      */
-    public JSFSelectOneMenuMap(T item) {
+    public JSFOneSelectMap(T item) {
         this.item = item;
         this.items = new HashMap<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a specified collection elements.
+     * Constructs an <tt>JSFOneSelectMap</tt> with a specified collection elements.
      *
      * @param items a collection of elements.
      * @see #items
      * @see Map
      */
-    public JSFSelectOneMenuMap(Map<K, V> items) {
+    public JSFOneSelectMap(Map<K, V> items) {
         this.items = items;
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a
+     * Constructs an <tt>JSFOneSelectMap</tt> with a
      * specified {@link #item} value and specified collection elements.
      *
      * @param item  a value<i>(typically, the current selection in "selectOneMenu")</i>.
@@ -88,7 +88,7 @@ public abstract class JSFSelectOneMenuMap<T, K, V> {
      * @see #items
      * @see Map
      */
-    public JSFSelectOneMenuMap(T item, Map<K, V> items) {
+    public JSFOneSelectMap(T item, Map<K, V> items) {
         this.item = item;
         this.items = items;
     }
@@ -169,9 +169,9 @@ public abstract class JSFSelectOneMenuMap<T, K, V> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof JSFSelectOneMenuMap)) return false;
+        if (!(o instanceof JSFOneSelectMap)) return false;
 
-        JSFSelectOneMenuMap<?, ?, ?> that = (JSFSelectOneMenuMap<?, ?, ?>) o;
+        JSFOneSelectMap<?, ?, ?> that = (JSFOneSelectMap<?, ?, ?>) o;
 
         if (getItem() != null ? !getItem().equals(that.getItem()) : that.getItem() != null) return false;
         return getItems() != null ? getItems().equals(that.getItems()) : that.getItems() == null;
@@ -188,7 +188,7 @@ public abstract class JSFSelectOneMenuMap<T, K, V> {
 
     @Override
     public String toString() {
-        return "JSFSelectOneMenuMap{" + "item=" + item + ", items=" + items + '}';
+        return "JSFOneSelectMap{" + "item=" + item + ", items=" + items + '}';
     }
 
 }
