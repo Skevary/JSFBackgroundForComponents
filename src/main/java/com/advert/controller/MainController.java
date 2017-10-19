@@ -6,8 +6,10 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(eager = true)
 @SessionScoped
 public class MainController {
-    DateRangePicker rangeDate = new DateRangePicker();
+    /* Pay attention to the overloaded constructors in the parent class */
     DatePicker singleDate = new DatePicker("dd/MM/yyyy");
+    DateRangePicker rangeDate = new DateRangePicker(); // The date format is installed inside
+
 
     public DateRangePicker getRangeDate() {
         return rangeDate;

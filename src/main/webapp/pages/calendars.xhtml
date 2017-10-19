@@ -4,39 +4,60 @@
                 template="../WEB-INF/templates/default.xhtml">
 
     <ui:define name="content">
-        <div class="container">
-            <h:form style="position: relative">
+        <h:form id="calendars" style="position: relative">
+            <div class="container">
                 <!-- Single Calendar -->
-                <div class="form-group">
-                    <label>Single Calendars: </label>
-                    <h:inputText styleClass="form-control" id="single_calendar"
-                                 a:date-picker="true" a:date-format="DD-MM-YYYY"
-                                 a:placeholder="Select Date"
-                                 value="#{mainController.singleDate.date}">
-                        <f:convertDateTime pattern="dd-MM-yyyy"/>
-                        <f:ajax event="blur"/>
-                    </h:inputText>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Single Calendars: </label>
+                        <h:inputText styleClass="form-control" id="single_calendar"
+                                     a:date-picker="true" a:date-format="DD-MM-YYYY"
+                                     a:placeholder="Select Date"
+                                     value="#{mainController.singleDate.date}">
+                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            <f:ajax event="blur" render="output_single_date"/>
+                        </h:inputText>
+                    </div>
+
+                    <!-- Range Calendar -->
+                    <div class="form-group">
+                        <label>Date Range Calendars: </label>
+                        <h:inputText styleClass="form-control" id="first_calendar"
+                                     a:date-picker="true" a:date-format="DD-MM-YYYY"
+                                     a:placeholder="Select First Date"
+                                     value="#{mainController.rangeDate.date1}">
+                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            <f:ajax event="blur" render="output_first_date"/>
+                        </h:inputText>
+
+                        <h:inputText styleClass="form-control" id="second_calendar"
+                                     a:date-picker="true" a:date-format="DD-MM-YYYY"
+                                     a:placeholder="Slect Second Date"
+                                     value="#{mainController.rangeDate.date2}">
+                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            <f:ajax event="blur" render="output_second_date"/>
+                        </h:inputText>
+                    </div>
                 </div>
 
-                <!-- Range Calendar -->
-                <div class="form-group">
-                    <label>Date Range Calendars: </label>
-                    <h:inputText styleClass="form-control" id="first_calendar"
-                                 a:date-picker="true" a:date-format="DD-MM-YYYY"
-                                 a:placeholder="First Date"
-                                 value="#{mainController.rangeDate.date1}">
-                        <f:convertDateTime pattern="dd-MM-yyyy"/>
-                        <f:ajax event="blur"/>
-                    </h:inputText>
-                    <h:inputText styleClass="form-control" id="second_calendar"
-                                 a:date-picker="true" a:date-format="DD-MM-YYYY"
-                                 a:placeholder="Second Date"
-                                 value="#{mainController.rangeDate.date2}">
-                        <f:convertDateTime pattern="dd-MM-yyyy"/>
-                        <f:ajax event="blur"/>
-                    </h:inputText>
+                <!-- Output -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="output_single_date">Single Date Output: </label>
+                        <h:inputText id="output_single_date" readonly="true" styleClass="form-control"
+                                     value="#{mainController.singleDate.formattedDate}"/> <!-- Attention, it is possible to return a formatted date. -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="output_first_date">Date Range Output: </label>
+                        <h:inputText id="output_first_date" readonly="true" styleClass="form-control"
+                                     value="#{mainController.rangeDate.date1}"/>
+                        <h:inputText id="output_second_date" readonly="true" styleClass="form-control"
+                                     value="#{mainController.rangeDate.date2}"/>
+                    </div>
+
                 </div>
-            </h:form>
-        </div>
+            </div>
+        </h:form>
     </ui:define>
 </ui:composition>
