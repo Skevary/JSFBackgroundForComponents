@@ -1,18 +1,19 @@
 package com.advert.util.JSFBackground;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A utility class designed for storing <tt>selectOneMenu</tt> component.<p>
- * Inside this class the items collection by default: {@link ArrayList}.
+ * Inside this class the items collection by default: {@link HashMap}.
  *
  * @param <T> the {@link #item} type
- * @param <S> the {@link #items} type
- * @see List
- * @see ArrayList
+ * @param <K> the key type for {@link #items}
+ * @param <V> the value type for {@link #items}
+ * @see Map
+ * @see HashMap
  */
-public abstract class JSFSelectOneMenuList<T, S> {
+public abstract class JSFSelectOneMenuMap<T, K, V> {
 
     /**
      * Typically, the current selection in "selectOneMenu".
@@ -35,72 +36,89 @@ public abstract class JSFSelectOneMenuList<T, S> {
      * &lt;/h:selectOneMenu&gt;
      * </i>
      *
-     * @see List
+     * @see Map
      */
-    private List<S> items;
+    private Map<K, V> items;
 
 
     /**
-     * Constructs an empty <tt>JSFSelectOneMenuList</tt> with the default collection: {@link ArrayList}.
+     * Constructs an empty <tt>JSFSelectOneMenuMap</tt> with the default collection: {@link HashMap}.
      *
      * @see #items
-     * @see ArrayList
+     * @see HashMap
      */
-    public JSFSelectOneMenuList() {
-        this.items = new ArrayList<>();
+    public JSFSelectOneMenuMap() {
+        this.items = new HashMap<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a specified {@link #item} value.
+     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a specified {@link #item} value.
      *
      * @param item value<i>(typically, the current selection in "selectOneMenu")</i>.
      * @see #item
      * @see #items
-     * @see ArrayList
+     * @see HashMap
      */
-    public JSFSelectOneMenuList(T item) {
+    public JSFSelectOneMenuMap(T item) {
         this.item = item;
-        this.items = new ArrayList<>();
+        this.items = new HashMap<>();
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a specified collection elements.
+     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a specified collection elements.
      *
      * @param items a collection of elements.
      * @see #items
-     * @see List
+     * @see Map
      */
-    public JSFSelectOneMenuList(List<S> items) {
+    public JSFSelectOneMenuMap(Map<K, V> items) {
         this.items = items;
     }
 
 
     /**
-     * Constructs an <tt>JSFSelectOneMenuList</tt> with a
+     * Constructs an <tt>JSFSelectOneMenuMap</tt> with a
      * specified {@link #item} value and specified collection elements.
      *
      * @param item  a value<i>(typically, the current selection in "selectOneMenu")</i>.
      * @param items a collection of elements.
      * @see #item
      * @see #items
-     * @see List
+     * @see Map
      */
-    public JSFSelectOneMenuList(T item, List<S> items) {
+    public JSFSelectOneMenuMap(T item, Map<K, V> items) {
         this.item = item;
         this.items = items;
     }
 
 
     /**
-     * Appends the specified element to the end of this collection {@link #items}.
+     * Associates the specified value with the specified key in this collection {@link #items}.
      *
-     * @param item element to be appended to this list.
-     * @see List
+     * @param key   key with which the specified value is to be associated.
+     * @param value value to be associated with the specified key
+     * @see Map
      */
-    public void addItem(S item) {
-        this.items.add(item);
+    public void addItem(K key, V value) {
+        this.items.put(key, value);
+    }
+
+
+    /**
+     * Returns the value to which the specified key is mapped,
+     * or null if this map contains no mapping for the key.
+     *
+     * @param key the key whose associated value is to be returned.
+     * @return the value to which the specified key is mapped,
+     * or null if this map contains no mapping for the key.
+     *
+     * @see #items
+     * @see Map
+     */
+    public V getItemsValue(K key) {
+        return items.get(key);
     }
 
 
@@ -129,9 +147,9 @@ public abstract class JSFSelectOneMenuList<T, S> {
      * Return this {@link #items}.
      *
      * @return {@link #items}
-     * @see List
+     * @see Map
      */
-    public List<S> getItems() {
+    public Map<K, V> getItems() {
         return items;
     }
 
@@ -141,9 +159,9 @@ public abstract class JSFSelectOneMenuList<T, S> {
      *
      * @param items a specified collection elements.
      * @see #items
-     * @see List
+     * @see Map
      */
-    public void setItems(List<S> items) {
+    public void setItems(Map<K, V> items) {
         this.items = items;
     }
 
@@ -151,9 +169,9 @@ public abstract class JSFSelectOneMenuList<T, S> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof JSFSelectOneMenuList)) return false;
+        if (!(o instanceof JSFSelectOneMenuMap)) return false;
 
-        JSFSelectOneMenuList<?, ?> that = (JSFSelectOneMenuList<?, ?>) o;
+        JSFSelectOneMenuMap<?, ?, ?> that = (JSFSelectOneMenuMap<?, ?, ?>) o;
 
         if (getItem() != null ? !getItem().equals(that.getItem()) : that.getItem() != null) return false;
         return getItems() != null ? getItems().equals(that.getItems()) : that.getItems() == null;
@@ -170,7 +188,7 @@ public abstract class JSFSelectOneMenuList<T, S> {
 
     @Override
     public String toString() {
-        return "JSFSelectOneMenuList{" + "item=" + item + ", items=" + items + '}';
+        return "JSFSelectOneMenuMap{" + "item=" + item + ", items=" + items + '}';
     }
 
 }

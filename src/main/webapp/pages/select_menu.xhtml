@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="../WEB-INF/templates/default.xhtml">
+
+    <ui:define name="content">
+        <h:form id="select_menu" style="position: relative">
+            <div class="container">
+                <!-- One Menu Group -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="select_one_menu">One menu: </label>
+                        <h:selectOneMenu id="select_one_menu" styleClass="form-control"
+                                         value="#{mainController.oneMenu.item}">
+                            <f:selectItems value="#{mainController.oneMenu.items}"/>
+                            <f:ajax execute="@form" render="output_select_one_menu"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select_group_menu">One group menu: </label>
+                        <h:selectOneMenu id="select_group_menu" styleClass="form-control"
+                                         value="#{mainController.oneMenuGroup.item}">
+                            <f:selectItems value="#{mainController.oneMenuGroup.items}"/>
+                            <f:ajax execute="@form" render="output_select_group_menu"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+
+                <!-- Output -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="output_select_one_menu">Output one menu item: </label>
+                        <h:inputText id="output_select_one_menu" readonly="true" styleClass="form-control"
+                                     value="#{mainController.oneMenu.item}"/>  <!-- Attention, returns Map value (In this situation, as a String, also see item type inside class.) -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="output_select_group_menu">Output one group menu item: </label>
+                        <h:inputText id="output_select_group_menu" readonly="true" styleClass="form-control"
+                                     value="#{mainController.oneMenuGroup.item}"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
