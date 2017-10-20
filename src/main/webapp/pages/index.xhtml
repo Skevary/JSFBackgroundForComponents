@@ -4,9 +4,11 @@
                 template="../WEB-INF/templates/default.xhtml">
 
     <ui:define name="content">
-        <ul>
-            <li><h:link outcome="calendars" value="Calendars"/></li>
-            <li><h:link outcome="selections" value="Selections"/></li>
-        </ul>
+        <div class="container">
+            <div class="list-group">
+              <h:link outcome="calendars" styleClass="list-group-item" value="Calendars"/>
+              <h:link outcome="selections" styleClass="list-group-item" value="Selections"/>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>
