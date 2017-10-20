@@ -13,7 +13,9 @@ public class MainController {
     private DateRangePicker rangeDate = new DateRangePicker(); // The date format is installed inside
     private OneMenuMap oneMenu = new OneMenuMap();
     private OneMenuGroupList oneMenuGroup = new OneMenuGroupList();
+    private ManyMenuMap manyMenu = new ManyMenuMap();
     private OneListBox listBox = new OneListBox();
+    private ManyListBox manyListBox = new ManyListBox();
 
     public DateRangePicker getRangeDate() {
         return rangeDate;
@@ -47,11 +49,27 @@ public class MainController {
         this.oneMenuGroup = oneMenuGroup;
     }
 
+    public ManyMenuMap getManyMenu() {
+        return manyMenu;
+    }
+
+    public void setManyMenu(ManyMenuMap manyMenu) {
+        this.manyMenu = manyMenu;
+    }
+
     public OneListBox getListBox() {
         return listBox;
     }
 
     public void setListBox(OneListBox listBox) {
         this.listBox = listBox;
+    }
+
+    public ManyListBox getManyListBox() {
+        return manyListBox;
+    }
+
+    public void setManyListBox(ManyListBox manyListBox) {
+        this.manyListBox = manyListBox;
     }
 }

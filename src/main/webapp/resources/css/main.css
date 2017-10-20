@@ -7,4 +7,9 @@ body {
     width: 255px !important;
     font-size: 12px !important;
     border-radius: 0 !important;
+
+}
+
+.many-menu {
+    height: 105px !important;
 }

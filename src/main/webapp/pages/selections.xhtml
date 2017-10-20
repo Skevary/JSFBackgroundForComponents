@@ -5,7 +5,7 @@
                 template="../WEB-INF/templates/default.xhtml">
 
     <ui:define name="content">
-        <h:form id="select_menu" style="position: relative">
+        <h:form id="selections">
             <div class="container">
                 <div class="col-sm-6">
                     <!-- One Menu -->
@@ -28,6 +28,16 @@
                         </h:selectOneMenu>
                     </div>
 
+                    <!-- Many Menu -->
+                    <div class="form-group">
+                        <label for="select_many_menu">Many menu: </label>
+                        <h:selectManyMenu id="select_many_menu" styleClass="form-control many-menu"
+                                          value="#{mainController.manyMenu.itemArray}">
+                            <f:selectItems value="#{mainController.manyMenu.items}"/>
+                            <f:ajax execute="@form" render="output_select_many_menu"/>
+                        </h:selectManyMenu>
+                    </div>
+
                     <!-- One Listbox -->
                     <div class="form-group">
                         <label for="select_one_list_box">One list box: </label>
@@ -36,6 +46,16 @@
                             <f:selectItems value="#{mainController.listBox.items}"/>
                             <f:ajax execute="@form" render="output_select_one_list_box"/>
                         </h:selectOneListbox>
+                    </div>
+
+                    <!-- Many Listbox -->
+                    <div class="form-group">
+                        <label for="select_many_list_box">Many list box: </label>
+                        <h:selectManyListbox id="select_many_list_box" styleClass="form-control"
+                                            value="#{mainController.manyListBox.itemArray}">
+                            <f:selectItems value="#{mainController.manyListBox.items}"/>
+                            <f:ajax execute="@form" render="output_select_many_list_box"/>
+                        </h:selectManyListbox>
                     </div>
                 </div>
 
@@ -55,11 +75,27 @@
                                      value="#{mainController.oneMenuGroup.item}"/>
                     </div>
 
+                    <!-- Many Menu -->
+                    <div class="form-group">
+                        <label for="output_select_many_menu">Output many menu items: </label>
+                        <h:selectManyMenu id="output_select_many_menu" readonly="true" styleClass="form-control many-menu" >
+                            <f:selectItems value="#{mainController.manyMenu.itemArray}"/>
+                        </h:selectManyMenu>
+                    </div>
+
                     <!-- One Listbox -->
                     <div class="form-group">
                         <label for="output_select_one_list_box">Output one list box: </label>
                         <h:inputText id="output_select_one_list_box" readonly="true" styleClass="form-control"
                                      value="#{mainController.listBox.item}"/>
+                    </div>
+
+                    <!-- Many Listbox -->
+                    <div class="form-group">
+                        <label for="output_select_many_list_box">Output many list box: </label>
+                        <h:selectManyListbox id="output_select_many_list_box" readonly="true" styleClass="form-control" >
+                            <f:selectItems value="#{mainController.manyListBox.itemArray}"/>
+                        </h:selectManyListbox>
                     </div>
                 </div>
             </div>
